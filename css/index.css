@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+}
+
+body {
+    color: #2c2c2c;
+    background-color: #fcf8f3;
+}
+
+h2 {
+    margin-bottom: 32px;
+    font-size: 60px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+}
+
+p {
+    margin-bottom: 32px;
+    width: 400px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+input,
+button,
+label {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 400px;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+button,
+label {
+    margin-top: 8px;
+    font-weight: 600;
+    padding: 16px;
+    cursor: pointer;
+    transition: all .3s;
+    text-align: center;
+}
+
+button:hover,
+label:hover {
+    transform: translateY(-2px);
+    background-color: #9d3729;
+}
+
+form button {
+    background-color: #b34334;
+    color: #fff;
+}
+
+.container-pai {
+    width: 100%;
+    height: 100vh;
+    background-color: #fcf8f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 80%;
+    height: 90vh;
+    background-color: #812921;
+    border-radius: 32px;
+    padding: 32px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.esquerda,
+.direita {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.formLogin,
+.formCadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+}
+
+.facaLogin,
+.facaCadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.facaLogin h2,
+.facaCadastro h2,
+.facaLogin p,
+.facaCadastro p {
+    color: #2c2c2c;
+}
+
+.facaLogin button,
+.facaCadastro button,
+.facaLogin label,
+.facaCadastro label {
+    background-color: #fcf9f3;
+    color: #812921;
+    border: 1px solid #812921;
+}
+
+.card::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: #fcf8f3;
+    background-image: url("../assets/bgg.png");
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: all .5s;
+}
+
+#toggle {
+    display: none;
+}
+
+#toggle:not(:checked) ~ .card::after {
+    transform: translateX(50%);
+}
+
+#toggle:not(:checked) ~ .card .formLogin {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#toggle:not(:checked) ~ .card .facaLogin {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#toggle:not(:checked) ~ .card .formCadastro {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#toggle:not(:checked) ~ .card .facaCadastro {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#toggle:checked ~ .card::after {
+    transform: translateX(-50%);
+}
+
+#toggle:checked ~ .card .formLogin {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#toggle:checked ~ .card .facaLogin {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#toggle:checked ~ .card .formCadastro {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#toggle:checked ~ .card .facaCadastro {
+    opacity: 0;
+    pointer-events: none;
+}
