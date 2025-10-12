@@ -1,3 +1,26 @@
 [
-
+    {
+        "id": 1,
+        "nome": "Oii",
+        "categoria": "bebida",
+        "sku": "A001",
+        "preco": 12.4,
+        "quantidade": 12,
+        "status": "inativo",
+        "descricao": "Lanche",
+        "imagem": null,
+        "criado_em": "2025-10-12 22:10:02"
+    },
+    {
+        "id": 3,
+        "nome": "Mene",
+        "categoria": "sobremesa",
+        "sku": "A004",
+        "preco": 99,
+        "quantidade": 1,
+        "status": "ativo",
+        "descricao": "Mene delicia manpo kkk",
+        "imagem": "database\/uploads\/img_68ec2b13a3f32.jpeg",
+        "criado_em": "2025-10-12 22:26:27"
+    }
 ]
