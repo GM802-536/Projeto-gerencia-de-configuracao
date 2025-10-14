@@ -1,5 +1,6 @@
 <?php
-
+    $erro = isset($_GET['erro']) ? htmlspecialchars(urldecode($_GET['erro'])) : null;
+    $sucesso = isset($_GET['cadastro']) && $_GET['cadastro'] === 'sucesso';
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +39,19 @@
 
                 <div class="formCadastro">
                     <h2>Cadastro</h2>
-                    <form action="" method="post">
-                        <input type="text" name="nome" placeholder="Nome">
-                        <input type="email" name="email" placeholder="E-mail">
-                        <input type="password" name="senha" placeholder="Senha">
-                        <input type="password" name="confirma" placeholder="Confirme a sua senha">
-                        <button type="submit">Cadastrar</button>
+                    <?php if ($erro): ?>
+                        <p style="color: #ffcccc; background: rgba(255,0,0,0.2); padding: 10px; border-radius: 8px; width: 100%; text-align: center;"><?= $erro ?></p>
+                    <?php endif; ?>
+                    <?php if ($sucesso): ?>
+                        <p style="color: #ccffcc; background: rgba(0,255,0,0.2); padding: 10px; border-radius: 8px; width: 100%; text-align: center;">Cadastro realizado com sucesso! Faça o login.</p>
+                    <?php endif; ?>
+                    
+                    <form action="../src/cliente/cadastrarCliente.php" method="post">
+                        <input type="text" name="nome" placeholder="Nome" required>
+                        <input type="email" name="email" placeholder="E-mail" required>
+                        <input type="password" name="senha" placeholder="Senha" required>
+                        <input type="password" name="confirma_senha" placeholder="Confirme a sua senha" required>
+                        <button type="submit" name="acao" value="cadastrar">Cadastrar</button>
                     </form>
                 </div>
 
