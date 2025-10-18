@@ -1,0 +1,151 @@
+/* ======= TEMA VINHO ======= */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f3f1f2;
+    color: #3a0c1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(58, 12, 26, 0.2);
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #7c1a3d;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* ======= LEGENDA ======= */
+.legenda {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.legenda .cor {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 6px;
+    border: 2px solid #3a0c1a;
+}
+
+.legenda .livre { background-color: #e0ffe0; }
+.legenda .reservada { background-color: #ffe6b5; }
+.legenda .ocupada { background-color: #ffb5b5; }
+
+/* ======= MAPA DE MESAS ======= */
+.mapa-mesas {
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    gap: 30px;
+    justify-content: center;
+}
+
+.mesa-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mesa {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    border: 3px solid #fff;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px rgba(122, 16, 41, 0.25);
+}
+
+.mesa.livre { background-color: #d4f6d4; }
+.mesa.reservada { background-color: #ffdc8b; }
+.mesa.ocupada { background-color: #e46a6a; }
+
+.mesa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(124, 26, 61, 0.4);
+}
+
+/* ======= NOME DAS MESAS ======= */
+.nome-mesa {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3a0c1a;
+}
+
+/* ======= POPUP ======= */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(58, 12, 26, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(58, 12, 26, 0.3);
+}
+
+.popup-content h2 {
+    color: #7c1a3d;
+    margin-bottom: 15px;
+}
+
+.popup-content input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.btn {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reservar {
+    background-color: #7c1a3d;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.reservar:hover {
+    background-color: #a02452;
+}
+
+.cancelar {
+    background-color: #e46a6a;
+    color: #fff;
+}
+
+.cancelar:hover {
+    background-color: #c94e4e;
+}
