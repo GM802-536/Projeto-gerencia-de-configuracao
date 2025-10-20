@@ -8,14 +8,16 @@
     {
         "id": 2,
         "nome": "Mesa 2",
-        "status": "livre",
-        "cliente": ""
+        "status": "reservada",
+        "cliente": "gabriel",
+        "cliente_email": "gm@hotmail.com"
     },
     {
         "id": 3,
         "nome": "Mesa 3",
-        "status": "livre",
-        "cliente": ""
+        "status": "reservada",
+        "cliente": "gab",
+        "cliente_email": "gab@hotmail.com"
     },
     {
         "id": 4,

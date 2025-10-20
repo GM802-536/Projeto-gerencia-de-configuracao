@@ -1,6 +1,6 @@
 <?php
-    $erro = isset($_GET['erro']) ? htmlspecialchars(urldecode($_GET['erro'])) : null;
-    $sucesso = isset($_GET['cadastro']) && $_GET['cadastro'] === 'sucesso';
+$erro = isset($_GET['erro']) ? htmlspecialchars(urldecode($_GET['erro'])) : null;
+$sucesso = isset($_GET['cadastro']) && $_GET['cadastro'] === 'sucesso';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Restaurante</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
@@ -20,8 +20,15 @@
         <div class="card">
             <div class="esquerda">
                 <div class="formLogin">
+                    <?php if ($erro): ?>
+                        <p
+                            style="color: #ffcccc; background: rgba(255,0,0,0.2); padding: 10px; border-radius: 8px; width: 100%; text-align: center;">
+                            <?= $erro ?>
+                        </p>
+                    <?php endif; ?>
+
                     <h2>Fazer Login</h2>
-                    <form action="" method="post">
+                    <form action="../src/cliente/login.php" method="post">
                         <input type="text" name="email" placeholder="E-mail" required>
                         <input type="password" name="senha" placeholder="Senha" required>
                         <button type="submit">Entrar</button>
@@ -40,12 +47,17 @@
                 <div class="formCadastro">
                     <h2>Cadastro</h2>
                     <?php if ($erro): ?>
-                        <p style="color: #ffcccc; background: rgba(255,0,0,0.2); padding: 10px; border-radius: 8px; width: 100%; text-align: center;"><?= $erro ?></p>
+                        <p
+                            style="color: #ffcccc; background: rgba(255,0,0,0.2); padding: 10px; border-radius: 8px; width: 100%; text-align: center;">
+                            <?= $erro ?>
+                        </p>
                     <?php endif; ?>
                     <?php if ($sucesso): ?>
-                        <p style="color: #ccffcc; background: rgba(0,255,0,0.2); padding: 10px; border-radius: 8px; width: 100%; text-align: center;">Cadastro realizado com sucesso! Faça o login.</p>
+                        <p
+                            style="color: #ccffcc; background: rgba(0,255,0,0.2); padding: 10px; border-radius: 8px; width: 100%; text-align: center;">
+                            Cadastro realizado com sucesso! Faça o login.</p>
                     <?php endif; ?>
-                    
+
                     <form action="../src/cliente/cadastrarCliente.php" method="post">
                         <input type="text" name="nome" placeholder="Nome" required>
                         <input type="email" name="email" placeholder="E-mail" required>
@@ -63,6 +75,17 @@
             </div>
         </div>
     </section>
+    <script>
+        const msg = document.querySelector('p[style*="rgba(255,0,0,0.2)"]');
+        if (msg) {
+            setTimeout(() => {
+                msg.style.transition = "opacity 0.6s ease";
+                msg.style.opacity = "0";
+                setTimeout(() => msg.remove(), 600);
+            }, 3000);
+        }
+    </script>
+
 </body>
 
 </html>

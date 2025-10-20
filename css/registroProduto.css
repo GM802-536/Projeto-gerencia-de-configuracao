@@ -257,3 +257,23 @@ button:hover {
     width: 100%;
   }
 }
+
+.voltar-painel {
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  background-color: #9d3729;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.voltar-painel:hover {
+  background-color: #f9e9e8;
+  color: #9d3729;
+  transform: translateY(-2px);
+}

@@ -61,7 +61,8 @@ $novoUsuario = [
     'nome'          => htmlspecialchars($nome), // Prevenção extra de segurança
     'email'         => $email,
     'senha'         => $senhaHash,
-    'data_cadastro' => date('Y-m-d H:i:s')
+    'data_cadastro' => date('Y-m-d H:i:s'),
+    'tipo' => "cliente"
 ];
 
 // 8. salva no arquivo

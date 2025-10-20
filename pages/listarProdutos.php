@@ -22,14 +22,11 @@ $produtos = json_decode($dados, true);
                 <div class="card">
                     <?php
                     $imagem = !empty($p['imagem']) ? htmlspecialchars($p['imagem']) : 'https://via.placeholder.com/400x200?text=Imagem+Indisponível';
-                    ?>
-                    <?php
-                    $caminhoImagem = "../" . $p['imagem']; // volta uma pasta (de pages/ para raiz)
+                    $caminhoImagem = "../" . $p['imagem'];
                     ?>
                     <img src="<?= htmlspecialchars($caminhoImagem) ?>" alt="<?= htmlspecialchars($p['nome']) ?>"
                         class="produto-img"
                         onerror="this.src='https://via.placeholder.com/400x200?text=Imagem+Indispon%C3%ADvel'">
-
 
                     <div class="card-content">
                         <h2><?= htmlspecialchars($p['nome']) ?></h2>
@@ -44,6 +41,7 @@ $produtos = json_decode($dados, true);
                         <p><strong>Descrição:</strong> <?= htmlspecialchars($p['descricao']) ?></p>
                         <p><strong>Criado em:</strong> <?= htmlspecialchars($p['criado_em']) ?></p>
                     </div>
+
                     <div class="acoes">
                         <button class="btn-editar"
                             onclick="abrirEditar(<?= htmlspecialchars(json_encode($p)) ?>)">Editar</button>
@@ -53,7 +51,6 @@ $produtos = json_decode($dados, true);
                             <button type="submit" class="btn-excluir">Excluir</button>
                         </form>
                     </div>
-
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -114,29 +111,28 @@ $produtos = json_decode($dados, true);
         </div>
     </div>
 
+    <!-- botão voltar -->
+    <a href="painelAdministrativo.php" class="voltar-painel">← Voltar ao Painel</a>
 
     <footer>
         © <?= date('Y') ?> - Sistema de Catálogo de Produtos
     </footer>
 
+    <script>
+        function abrirEditar(produto) {
+            document.getElementById('edit-id').value = produto.id;
+            document.getElementById('edit-nome').value = produto.nome;
+            document.getElementById('edit-categoria').value = produto.categoria;
+            document.getElementById('edit-preco').value = produto.preco;
+            document.getElementById('edit-quantidade').value = produto.quantidade;
+            document.getElementById('edit-status').value = produto.status;
+            document.getElementById('edit-descricao').value = produto.descricao;
+            document.getElementById('modalEditar').style.display = 'flex';
+        }
+
+        function fecharEditar() {
+            document.getElementById('modalEditar').style.display = 'none';
+        }
+    </script>
 </body>
-
 </html>
-
-<script>
-    function abrirEditar(produto) {
-        document.getElementById('edit-id').value = produto.id;
-        document.getElementById('edit-nome').value = produto.nome;
-        document.getElementById('edit-categoria').value = produto.categoria;
-        document.getElementById('edit-preco').value = produto.preco;
-        document.getElementById('edit-quantidade').value = produto.quantidade;
-        document.getElementById('edit-status').value = produto.status;
-        document.getElementById('edit-descricao').value = produto.descricao;
-        document.getElementById('modalEditar').style.display = 'flex';
-    }
-
-    function fecharEditar() {
-        document.getElementById('modalEditar').style.display = 'none';
-    }
-
-</script>
