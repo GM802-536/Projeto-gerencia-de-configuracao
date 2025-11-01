@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "nome": "adm",
+        "email": "adm@hotmail.com",
+        "senha": "$2y$10$DtUCuaICiBTJFf8TZMSnuuYLIyz\/NYeD4GnuHxreUpqrMXyBUgFrC",
+        "data_cadastro": "2025-10-19 18:54:11",
+        "tipo": "adm"
+    },
+    {
+        "id": 2,
+        "nome": "gab",
+        "email": "gab@hotmail.com",
+        "senha": "$2y$10$DtUCuaICiBTJFf8TZMSnuuYLIyz\/NYeD4GnuHxreUpqrMXyBUgFrC",
+        "data_cadastro": "2025-10-19 18:49:13",
+        "tipo": "cliente"
+    }
+]
