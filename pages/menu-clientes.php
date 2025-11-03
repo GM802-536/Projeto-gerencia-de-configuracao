@@ -51,9 +51,10 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
                     foreach ($produtos as $produto):
                         if (isset($produto['status']) && $produto['status'] == 'ativo'):
                             $preco_formatado = 'R$ ' . number_format((float)$produto['preco'], 2, ',', '.');
-                            $caminho_imagem = '../' . htmlspecialchars($produto['imagem']);
                             if (empty($produto['imagem'])) {
-                                $caminho_imagem = '../caminho/para/imagem_padrao.png'; // <- Troque se tiver uma
+                                $caminho_imagem = '../database/uploads/produto_sem_foto.jpeg'; // <- Troque se tiver uma
+                            } else{
+                                $caminho_imagem = '../' . htmlspecialchars($produto['imagem']);
                             }
                 ?>
                 
