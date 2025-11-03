@@ -21,5 +21,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 }
-header('Location: ../../pages/menu-clientes.php');
+header('Location: ../../pages/menu-clientes.php?secao=entrega');
 exit;

@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$secao = isset($_GET['secao']) ? $_GET['secao'] : 'sobre';
 $caminho_json = '../database/produtos.json';
 $produtos = [];
 
@@ -27,12 +29,12 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
         <header class="topbar">
             <div class="logo">
                 <i class="fa-solid fa-fire-burner"></i>
-                <h1>Restaurante</h1>
+                <h1>Lababadi</h1>
             </div>
             <nav class="top-menu">
-                <a href="#sobre">Sobre</a>
-                <a href="#entrega">Entrega</a>
-                <a href="#mesas">Mesas</a>
+                <a href="?secao=sobre" class="<?= $secao === 'sobre' ? 'active' : '' ?>">Sobre</a>
+                <a href="?secao=entrega" class="<?= $secao === 'entrega' ? 'active' : '' ?>">Entrega</a>
+                <a href="?secao=mesas" class="<?= $secao === 'mesas' ? 'active' : '' ?>">Mesas</a>
             </nav>
             <div class="user-options">
                 <a href="carrinho.php" class="cart-icon">
@@ -48,64 +50,22 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
             </div>
         </header>
 
-        <section class="restaurant-info">
-            <div class="info-container">
-                <img src="../database/uploads/restaurante-ambiente.jpg" alt="Imagem do restaurante" />
-                <p class="descricao">
-                    Neste Restaurante, tradição e sabor se encontram em um ambiente acolhedor. Cada prato é preparado com ingredientes frescos e selecionados, oferecendo uma experiência gastronômica única que valoriza o melhor da culinária artesanal. Venha saborear momentos inesquecíveis conosco!
-                </p>
-                <div class="contatos">
-                    <a href="https://instagram.com/">@Restaurante</a>
-                    <a href="Restaurante@hotmail.com">@Restaurante@hotmail.com</a>
-                </div>
-            </div>
-        </section>
 
-        <section class="menu-section">
-            <!-- <h2>Cardápio</h2>
+        <main>
+            <?php
+            if ($secao === 'entrega') {
+                include 'menu-sections/entrega.php';
+            } elseif ($secao === 'mesas') {
+                include 'menu-sections/mesas.php';
+            } else {
+                include 'menu-sections/sobre.php';
+            }
+            ?>
+        </main>
 
-            <div class="menu-grid">
-                
-                 <?php
-                    if (!empty($produtos) && is_array($produtos)):
-                        foreach ($produtos as $produto):
-                            if (isset($produto['status']) && $produto['status'] == 'ativo'):
-                                $preco_formatado = 'R$ ' . number_format((float)$produto['preco'], 2, ',', '.');
-                                if (empty($produto['imagem'])) {
-                                    $caminho_imagem = '../database/uploads/produto_sem_foto.jpeg'; // <- Troque se tiver uma
-                                } else {
-                                    $caminho_imagem = '../' . htmlspecialchars($produto['imagem']);
-                                }
-                    ?>
-                
-                <div class="menu-item">
-                    <img src="<?= $caminho_imagem ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
-                    <h3><?= htmlspecialchars($produto['nome']) ?></h3>
-                    <p><?= htmlspecialchars($produto['descricao']) ?></p>
-                    <span><?= $preco_formatado ?></span>
-                    
-                    <form action="../src/carrinho/adicionar.php" method="POST">
-                        <input type="hidden" name="produto_id" value="<?= $produto['id'] ?>">
-                        <button type="submit"><i class="fa-solid fa-plus"></i> Adicionar</button>
-                    </form>
-                </div>
-
-                <?php
-                            endif;
-                        endforeach;
-                    else:
-                ?>
-                    <p>Nenhum produto encontrado no cardápio no momento.</p>
-                <?php
-                    endif;
-                ?> -->
-
-    </div>
-    </section>
-
-    <footer>
-        <p>© 2025 Restaurante — Todos os direitos reservados.</p>
-    </footer>
+        <footer>
+            <p>© 2025 Lababadi — Todos os direitos reservados.</p>
+        </footer>
     </div>
 </body>
 

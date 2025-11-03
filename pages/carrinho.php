@@ -121,7 +121,7 @@ $total_pedido = 0;
                             <span>R$ <?= number_format($total_pedido, 2, ',', '.') ?></span>
                         </div>
                         <div class="carrinho-acoes">
-                            <a href="menu-clientes.php" class="btn-continuar">Continuar comprando</a>
+                            <a href="menu-clientes.php?secao=entrega" class="btn-continuar">Continuar comprando</a>
                             <a href="#" class="btn-finalizar disabled" title="Função ainda não implementada">Finalizar Compra</a>
                         </div>
                     </div>
