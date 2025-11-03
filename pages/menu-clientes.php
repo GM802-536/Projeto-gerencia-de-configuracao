@@ -9,7 +9,12 @@ if (file_exists($caminho_json)) {
     $json_data = file_get_contents($caminho_json);
     $produtos = json_decode($json_data, true);
 }
-$itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho']) : 0;
+$itens_no_carrinho = 0;
+if (isset($_SESSION['carrinho'])) {
+    foreach ($_SESSION['carrinho'] as $item) {
+        $itens_no_carrinho += $item['quantidade'];
+    }
+}
 
 ?>
 <!DOCTYPE html>
