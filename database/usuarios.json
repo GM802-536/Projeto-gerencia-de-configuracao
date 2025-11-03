@@ -22,5 +22,13 @@
         "senha": "$2y$10$5Srn7.uoqj3ft1x05EDgJ.Us7w6cHlpK6ntjrNFKIWj7qd0s1hVJ2",
         "data_cadastro": "2025-11-03 12:33:13",
         "tipo": "cliente"
+    },
+    {
+        "id": 4,
+        "nome": "Sayuri Makino Mendes",
+        "email": "sayurimakino4@gmail.com",
+        "senha": "$2y$10$bq3jngKI1weLulCn2w\/gT.Ayt5hBT3VBef78tXVs7jEdHUHwn5rPS",
+        "data_cadastro": "2025-11-03 18:54:20",
+        "tipo": "cliente"
     }
 ]
