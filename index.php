@@ -30,7 +30,7 @@ $usuario = $_SESSION['usuario'] ?? null;
     <?php endif; ?>
     <ul>
         <li><a href="./pages/mesas.php">Agendar Mesa</a></li>
-        <li><a href="">Pedir entrega</a></li>
+        <li><a href="./pages/menu-clientes.php">Pedir entrega</a></li>
         <?php if ($usuario): ?>
             <?php if ($usuario['tipo'] === 'adm'): ?>
                 <li><a href="./pages/painelAdministrativo.php">Painel Administrativo (ADM)</a></li>

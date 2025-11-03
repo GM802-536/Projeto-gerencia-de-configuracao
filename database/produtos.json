@@ -6,7 +6,7 @@
         "sku": "A001",
         "preco": 12.4,
         "quantidade": 12,
-        "status": "inativo",
+        "status": "ativo",
         "descricao": "Lanche",
         "imagem": null,
         "criado_em": "2025-10-12 22:10:02"
