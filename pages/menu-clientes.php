@@ -1,5 +1,15 @@
-<?php ?>
+<?php
+session_start();
+$caminho_json = '../database/produtos.json';
+$produtos = [];
 
+if (file_exists($caminho_json)) {
+    $json_data = file_get_contents($caminho_json);
+    $produtos = json_decode($json_data, true);
+}
+$itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho']) : 0;
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,8 +28,16 @@
                 <h1>Restaurante</h1>
             </div>
             <div class="user-options">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-solid fa-user"></i>
+                <a href="carrinho.php" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <?php if ($itens_no_carrinho > 0): ?>
+                        <span class="cart-counter"><?= $itens_no_carrinho ?></span>
+                    <?php endif; ?>
+                </a>
+                
+                <a href="../src/cliente/logout.php" title="Sair">
+                   <i class="fa-solid fa-user"></i>
+                </a>
             </div>
         </header>
 
@@ -27,39 +45,41 @@
             <h2>Cardápio</h2>
 
             <div class="menu-grid">
+                
+                <?php
+                if (!empty($produtos) && is_array($produtos)):
+                    foreach ($produtos as $produto):
+                        if (isset($produto['status']) && $produto['status'] == 'ativo'):
+                            $preco_formatado = 'R$ ' . number_format((float)$produto['preco'], 2, ',', '.');
+                            $caminho_imagem = '../' . htmlspecialchars($produto['imagem']);
+                            if (empty($produto['imagem'])) {
+                                $caminho_imagem = '../caminho/para/imagem_padrao.png'; // <- Troque se tiver uma
+                            }
+                ?>
+                
                 <div class="menu-item">
-                    <img src="" alt="Prato 1">
-                    <h3>Frango Grelhado</h3>
-                    <p>Peito de frango grelhado com arroz e salada.</p>
-                    <span>R$ 25,00</span>
-                    <button><i class="fa-solid fa-plus"></i> Adicionar</button>
+                    <img src="<?= $caminho_imagem ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+                    <h3><?= htmlspecialchars($produto['nome']) ?></h3>
+                    <p><?= htmlspecialchars($produto['descricao']) ?></p>
+                    <span><?= $preco_formatado ?></span>
+                    
+                    <form action="../src/carrinho/adicionar.php" method="POST">
+                        <input type="hidden" name="produto_id" value="<?= $produto['id'] ?>">
+                        <button type="submit"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                    </form>
                 </div>
 
-                <div class="menu-item">
-                    <img src="" alt="Prato 2">
-                    <h3>Strogonoff de Carne</h3>
-                    <p>Acompanha arroz e batata palha.</p>
-                    <span>R$ 28,00</span>
-                    <button><i class="fa-solid fa-plus"></i> Adicionar</button>
-                </div>
+                <?php
+                        endif;
+                    endforeach;
+                else:
+                ?>
+                    <p>Nenhum produto encontrado no cardápio no momento.</p>
+                <?php
+                endif;
+                ?>
 
-                <div class="menu-item">
-                    <img src="" alt="Prato 3">
-                    <h3>Macarrão à Bolonhesa</h3>
-                    <p>Molho caseiro com carne moída e queijo ralado.</p>
-                    <span>R$ 24,00</span>
-                    <button><i class="fa-solid fa-plus"></i> Adicionar</button>
-                </div>
-
-                <div class="menu-item">
-                    <img src="" alt="Prato 4">
-                    <h3>Salada Caesar</h3>
-                    <p>Alface, frango grelhado, parmesão e molho especial.</p>
-                    <span>R$ 20,00</span>
-                    <button><i class="fa-solid fa-plus"></i> Adicionar</button>
-                </div>
-            </div>
-        </section>
+            </div> </section>
 
         <footer>
             <p>© 2025 Restaurante — Todos os direitos reservados.</p>

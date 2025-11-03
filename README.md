@@ -14,7 +14,7 @@
 
 1.Baixe ou clone o repositório
 
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/GM802-536/Projeto-gerencia-de-configuracao
 
 2.Abra o terminal na pasta raiz do projeto
 
