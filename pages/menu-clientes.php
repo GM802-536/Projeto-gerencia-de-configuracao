@@ -35,6 +35,10 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
                 <a href="?secao=sobre" class="<?= $secao === 'sobre' ? 'active' : '' ?>">Sobre</a>
                 <a href="?secao=entrega" class="<?= $secao === 'entrega' ? 'active' : '' ?>">Entrega</a>
                 <a href="?secao=mesas" class="<?= $secao === 'mesas' ? 'active' : '' ?>">Mesas</a>
+                <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo'] === 'adm'): ?>
+                    <a href="./painelAdministrativo.php" class="<?= $secao === 'admin' ? 'active' : '' ?>">Admin</a>
+                <?php endif; ?>
+
             </nav>
             <div class="user-options">
                 <a href="carrinho.php" class="cart-icon">
@@ -44,9 +48,18 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
                     <?php endif; ?>
                 </a>
 
-                <a href="../src/cliente/logout.php" title="Sair">
-                    <i class="fa-solid fa-user"></i>
-                </a>
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    <!-- Usuário logado -->
+                    <a href="../src/cliente/logout.php" title="Sair">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                <?php else: ?>
+                    <!-- Usuário NÃO logado -->
+                    <a href="./login.php" class="login-link">
+                        Fazer login
+                    </a>
+                <?php endif; ?>
+
             </div>
         </header>
 
