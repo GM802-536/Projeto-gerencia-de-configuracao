@@ -12,6 +12,7 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8c889e6dd8.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="menu-container">
         <header class="topbar">
@@ -27,6 +29,11 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
                 <i class="fa-solid fa-fire-burner"></i>
                 <h1>Restaurante</h1>
             </div>
+            <nav class="top-menu">
+                <a href="#sobre">Sobre</a>
+                <a href="#entrega">Entrega</a>
+                <a href="#mesas">Mesas</a>
+            </nav>
             <div class="user-options">
                 <a href="carrinho.php" class="cart-icon">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -34,29 +41,42 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
                         <span class="cart-counter"><?= $itens_no_carrinho ?></span>
                     <?php endif; ?>
                 </a>
-                
+
                 <a href="../src/cliente/logout.php" title="Sair">
-                   <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-user"></i>
                 </a>
             </div>
         </header>
 
+        <section class="restaurant-info">
+            <div class="info-container">
+                <img src="../database/uploads/restaurante-ambiente.jpg" alt="Imagem do restaurante" />
+                <p class="descricao">
+                    Neste Restaurante, tradição e sabor se encontram em um ambiente acolhedor. Cada prato é preparado com ingredientes frescos e selecionados, oferecendo uma experiência gastronômica única que valoriza o melhor da culinária artesanal. Venha saborear momentos inesquecíveis conosco!
+                </p>
+                <div class="contatos">
+                    <a href="https://instagram.com/">@Restaurante</a>
+                    <a href="Restaurante@hotmail.com">@Restaurante@hotmail.com</a>
+                </div>
+            </div>
+        </section>
+
         <section class="menu-section">
-            <h2>Cardápio</h2>
+            <!-- <h2>Cardápio</h2>
 
             <div class="menu-grid">
                 
-                <?php
-                if (!empty($produtos) && is_array($produtos)):
-                    foreach ($produtos as $produto):
-                        if (isset($produto['status']) && $produto['status'] == 'ativo'):
-                            $preco_formatado = 'R$ ' . number_format((float)$produto['preco'], 2, ',', '.');
-                            if (empty($produto['imagem'])) {
-                                $caminho_imagem = '../database/uploads/produto_sem_foto.jpeg'; // <- Troque se tiver uma
-                            } else{
-                                $caminho_imagem = '../' . htmlspecialchars($produto['imagem']);
-                            }
-                ?>
+                 <?php
+                    if (!empty($produtos) && is_array($produtos)):
+                        foreach ($produtos as $produto):
+                            if (isset($produto['status']) && $produto['status'] == 'ativo'):
+                                $preco_formatado = 'R$ ' . number_format((float)$produto['preco'], 2, ',', '.');
+                                if (empty($produto['imagem'])) {
+                                    $caminho_imagem = '../database/uploads/produto_sem_foto.jpeg'; // <- Troque se tiver uma
+                                } else {
+                                    $caminho_imagem = '../' . htmlspecialchars($produto['imagem']);
+                                }
+                    ?>
                 
                 <div class="menu-item">
                     <img src="<?= $caminho_imagem ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
@@ -71,20 +91,22 @@ $itens_no_carrinho = isset($_SESSION['carrinho']) ? count($_SESSION['carrinho'])
                 </div>
 
                 <?php
-                        endif;
-                    endforeach;
-                else:
+                            endif;
+                        endforeach;
+                    else:
                 ?>
                     <p>Nenhum produto encontrado no cardápio no momento.</p>
                 <?php
-                endif;
-                ?>
+                    endif;
+                ?> -->
 
-            </div> </section>
+    </div>
+    </section>
 
-        <footer>
-            <p>© 2025 Restaurante — Todos os direitos reservados.</p>
-        </footer>
+    <footer>
+        <p>© 2025 Restaurante — Todos os direitos reservados.</p>
+    </footer>
     </div>
 </body>
+
 </html>
