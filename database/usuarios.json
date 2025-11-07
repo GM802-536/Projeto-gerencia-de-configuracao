@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "nome": "adm",
+        "nome": "Administrador",
         "email": "adm@hotmail.com",
         "senha": "$2y$10$DtUCuaICiBTJFf8TZMSnuuYLIyz\/NYeD4GnuHxreUpqrMXyBUgFrC",
         "data_cadastro": "2025-10-19 18:54:11",
@@ -25,9 +25,9 @@
     },
     {
         "id": 4,
-        "nome": "Sayuri Makino Mendes",
+        "nome": "Sayuri Makino",
         "email": "sayurimakino4@gmail.com",
-        "senha": "$2y$10$bq3jngKI1weLulCn2w\/gT.Ayt5hBT3VBef78tXVs7jEdHUHwn5rPS",
+        "senha": "$2y$10$AeAbitOIam2As3A8AbPrkOCR\/uonxVAL0GHJO1ISrV9EI45Mu9N4S",
         "data_cadastro": "2025-11-03 18:54:20",
         "tipo": "cliente"
     }

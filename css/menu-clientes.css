@@ -34,27 +34,41 @@ body {
     margin-right: 20px;
 }
 
-.top-menu a{
+.top-menu a {
+    position: relative;
+    padding-bottom: 5px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: color 0.3s ease;
 }
 
 .top-menu a:hover {
-    color: #fcf8f3;
+    color: #f3d1c9;
+}
+
+.top-menu a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 20px;
+    font-size: 24px;
     margin-right: auto;
 }
 
 .logo h1 {
     font-weight: 600;
+    font-size: 24px;
 }
 
 .user-options {
@@ -68,11 +82,6 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
-
-.user-options i:hover {
-    color: #fcf8f3;
-}
-
 
 .cart-icon {
     position: relative;
@@ -241,7 +250,34 @@ footer {
     }
 }
 
-.top-menu a.active {
-    font-weight: bold;
-    color: #ff6600;
+.top-menu a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
 }
+
+.login-link {
+    position: relative;
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 6px 14px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.login-link:hover {
+    border-color: #fff; 
+    color: #f3f3f3;
+}
+
+
+

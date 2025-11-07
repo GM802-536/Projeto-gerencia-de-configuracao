@@ -34,19 +34,42 @@ $total_pedido = 0;
 <body>
     <div class="menu-container">
         <header class="topbar">
-            <div class="logo">
-                <i class="fa-solid fa-fire-burner"></i>
-                <h1>Restaurante</h1>
-            </div>
-            <div class="user-options">
-                <a href="carrinho.php" class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
+    <div class="logo">
+        <i class="fa-solid fa-fire-burner"></i>
+        <h1>Lababadi</h1>
+    </div>
+    <div class="user-options">
+        <?php if (isset($_SESSION['usuario'])): ?>
+            <!-- Usuário logado -->
+            <a href="carrinho.php" class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <?php if (!empty($_SESSION['carrinho'])): ?>
+                    <?php 
+                    $itens_no_carrinho = 0;
+                    foreach ($_SESSION['carrinho'] as $item) {
+                        $itens_no_carrinho += $item['quantidade'];
+                    }
+                    ?>
+                    <?php if ($itens_no_carrinho > 0): ?>
+                        <span class="cart-counter"><?= $itens_no_carrinho ?></span>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </a>
+
+            <div class="user-logged">
+                <a href="editar-perfil.php" title="Editar perfil" class="user-link">
+                    <i class="fa-solid fa-user"></i>
                 </a>
-                <a href="../src/cliente/logout.php" title="Sair">
-                   <i class="fa-solid fa-user"></i>
+                <a href="../src/cliente/logout.php" title="Sair" class="logout-icon">
+                    <i class="fa-solid fa-right-from-bracket"></i>
                 </a>
             </div>
-        </header>
+        <?php else: ?>
+            <!-- Usuário NÃO logado -->
+            <a href="./login.php" class="login-link">Fazer login</a>
+        <?php endif; ?>
+    </div>
+</header>
 
         <section class="menu-section">
             <h2>Meu Carrinho</h2>

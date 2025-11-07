@@ -34,7 +34,7 @@ if (isset($_SESSION['carrinho'])) {
         <header class="topbar">
             <div class="logo">
                 <i class="fa-solid fa-fire-burner"></i>
-                <h1>Lababadi</h1>
+                <h1 class="nome-restaurante">Lababadi</h1>
             </div>
             <nav class="top-menu">
                 <a href="?secao=sobre" class="<?= $secao === 'sobre' ? 'active' : '' ?>">Sobre</a>
@@ -46,28 +46,29 @@ if (isset($_SESSION['carrinho'])) {
 
             </nav>
             <div class="user-options">
-                <a href="carrinho.php" class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <?php if ($itens_no_carrinho > 0): ?>
-                        <span class="cart-counter"><?= $itens_no_carrinho ?></span>
-                    <?php endif; ?>
-                </a>
-
                 <?php if (isset($_SESSION['usuario'])): ?>
                     <!-- Usuário logado -->
-                    <a href="../src/cliente/logout.php" title="Sair">
-                        <i class="fa-solid fa-user"></i>
+                    <a href="carrinho.php" class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <?php if ($itens_no_carrinho > 0): ?>
+                            <span class="cart-counter"><?= $itens_no_carrinho ?></span>
+                        <?php endif; ?>
                     </a>
+
+                    <div class="user-logged">
+                        <a href="editar-perfil.php" title="Editar perfil" class="user-link">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                        <a href="../src/cliente/logout.php" title="Sair" class="logout-icon">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                    </div>
                 <?php else: ?>
                     <!-- Usuário NÃO logado -->
-                    <a href="./login.php" class="login-link">
-                        Fazer login
-                    </a>
+                    <a href="./login.php" class="login-link">Fazer login</a>
                 <?php endif; ?>
-
             </div>
         </header>
-
 
         <main>
             <?php
