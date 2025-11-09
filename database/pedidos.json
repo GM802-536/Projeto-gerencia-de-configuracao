@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "id_cliente": 3,
+        "nome_cliente": "Silvio",
+        "data_pedido": "2025-11-09 11:42:45",
+        "status": "recebido",
+        "total": 37.2,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 3,
+                "preco_unitario": 12.4
+            }
+        ]
+    }
+]

@@ -145,7 +145,11 @@ $total_pedido = 0;
                         </div>
                         <div class="carrinho-acoes">
                             <a href="menu-clientes.php?secao=entrega" class="btn-continuar">Continuar comprando</a>
-                            <a href="#" class="btn-finalizar disabled" title="Função ainda não implementada">Finalizar Compra</a>
+                            <?php if (isset($_SESSION['usuario'])): ?>
+                                <a href="../src/carrinho/finalizar.php" class="btn-finalizar">Finalizar Compra</a>
+                            <?php else: ?>
+                                <a href="login.php?erro=Faça+login+para+finalizar" class="btn-finalizar" style="background-color: #f39c12;">Fazer Login para Comprar</a>
+                            <?php endif; ?>
                         </div>
                     </div>
 

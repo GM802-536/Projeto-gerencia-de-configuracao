@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_GET['sucesso_pedido'])) {
+    $id_novo_pedido = htmlspecialchars($_GET['sucesso_pedido']);
+    echo "<script>alert('Pedido #$id_novo_pedido realizado com sucesso!'); window.location.href='menu-clientes.php';</script>";
+}
 
 $secao = isset($_GET['secao']) ? $_GET['secao'] : 'sobre';
 $caminho_json = '../database/produtos.json';
