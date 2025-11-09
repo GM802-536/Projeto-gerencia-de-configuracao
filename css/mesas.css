@@ -1,12 +1,9 @@
-/* ======= TEMA VINHO ======= */
 body {
     font-family: "Poppins", sans-serif;
     background-color: #f3f1f2;
     color: #3a0c1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -15,6 +12,8 @@ body {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(58, 12, 26, 0.2);
+    margin: 40px auto;
+    max-width: 1200px;
 }
 
 h1 {
@@ -24,7 +23,6 @@ h1 {
     font-weight: 700;
 }
 
-/* ======= LEGENDA ======= */
 .legenda {
     display: flex;
     justify-content: center;
@@ -79,7 +77,6 @@ h1 {
     box-shadow: 0 0 20px rgba(124, 26, 61, 0.4);
 }
 
-/* ======= NOME DAS MESAS ======= */
 .nome-mesa {
     margin-top: 8px;
     font-size: 14px;
@@ -87,7 +84,6 @@ h1 {
     color: #3a0c1a;
 }
 
-/* ======= POPUP ======= */
 .popup {
     display: none;
     position: fixed;
@@ -148,4 +144,29 @@ h1 {
 
 .cancelar:hover {
     background-color: #c94e4e;
+}
+
+.calendario-container {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.calendario-container label {
+    font-weight: 600;
+    color: #7c1a3d;
+    margin-right: 10px;
+}
+
+.calendario-container input[type="date"] {
+    padding: 8px 12px;
+    border: 2px solid #7c1a3d;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calendario-container input[type="date"]:hover {
+    background-color: #f9f0f3;
 }

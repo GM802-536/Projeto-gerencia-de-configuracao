@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mesas = document.querySelectorAll('.mesa');
+    const popup = document.getElementById('popup-reserva');
+    const formReserva = document.getElementById('formReserva');
 
     mesas.forEach(mesa => {
         mesa.addEventListener('click', () => {
@@ -15,13 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 document.getElementById('mesa_id').value = mesaId;
                 document.getElementById('mesaSelecionada').innerText = `Você está reservando a ${mesaNome}`;
-                document.getElementById('popup-reserva').style.display = 'flex';
+                popup.style.display = 'flex';
             } else if (status === 'reservada') {
                 alert('Esta mesa já está reservada!');
             } else if (status === 'ocupada') {
                 alert('Esta mesa está ocupada!');
             }
         });
+    });
+
+    formReserva.addEventListener('submit', () => {
+        popup.style.display = 'none';
+        setTimeout(() => {
+            window.location.reload(); 
+        }, 1000);
     });
 });
 
