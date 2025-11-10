@@ -158,7 +158,7 @@
         "id_cliente": 0,
         "nome_cliente": "Administrador",
         "data_pedido": "2025-11-10 15:52:49",
-        "status": "Preparando",
+        "status": "entregue",
         "total": 99,
         "itens": [
             {
@@ -167,7 +167,8 @@
                 "quantidade": 1,
                 "preco_unitario": 99
             }
-        ]
+        ],
+        "data_entrega": "2025-11-10 19:04:22"
     },
     {
         "id": 9,

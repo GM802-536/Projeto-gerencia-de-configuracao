@@ -6,9 +6,7 @@
         "senha": "$2y$10$DtUCuaICiBTJFf8TZMSnuuYLIyz\/NYeD4GnuHxreUpqrMXyBUgFrC",
         "data_cadastro": "2025-10-19 18:54:11",
         "tipo": "adm",
-        "pedidos_em_andamento": {
-            "1": 8
-        }
+        "pedidos_em_andamento": []
     },
     {
         "id": 2,
