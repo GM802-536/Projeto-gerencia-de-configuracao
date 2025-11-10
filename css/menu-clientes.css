@@ -280,4 +280,144 @@ footer {
 }
 
 
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+.user-link {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.pedido-alerta {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #e63946;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    margin-top: 10px;
+    min-width: 160px;
+    overflow: hidden;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5;
+}
+
+.user-dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.checar-pedido-link {
+    position: relative;
+}
+
+.pedido-alerta-mini {
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    background-color: #e63946;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    animation: piscar 1.2s infinite;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.2); }
+}
+
+.popup-pedido {
+    position: fixed;
+    bottom: -100px;
+    right: 25px;
+    background-color: #fff;
+    color: #2c2c2c;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2000;
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.popup-pedido.visivel {
+    bottom: 25px;
+    opacity: 1;
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.popup-pedido i {
+    color: #e63946;
+    font-size: 1.2rem;
+}
+
+.botao-ver {
+    background-color: #e63946;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.botao-ver:hover {
+    background-color: #c92733;
+}
+
+.fechar-popup {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fechar-popup:hover {
+    color: #333;
+}

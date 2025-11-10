@@ -14,5 +14,125 @@
                 "preco_unitario": 12.4
             }
         ]
+    },
+    {
+        "id": 2,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-09 20:49:11",
+        "status": "recebido",
+        "total": 99,
+        "itens": [
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-09 21:37:01",
+        "status": "recebido",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-09 21:43:00",
+        "status": "recebido",
+        "total": 198,
+        "itens": [
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 2,
+                "preco_unitario": 99
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-09 21:43:22",
+        "status": "recebido",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-09 22:17:44",
+        "status": "recebido",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            },
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "id_cliente": 2,
+        "nome_cliente": "gab",
+        "data_pedido": "2025-11-09 22:25:35",
+        "status": "recebido",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ]
     }
 ]

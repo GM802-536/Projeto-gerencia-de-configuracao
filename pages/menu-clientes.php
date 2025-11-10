@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once './includes/popup-pedido.php';
 if (isset($_GET['sucesso_pedido'])) {
     $id_novo_pedido = htmlspecialchars($_GET['sucesso_pedido']);
     echo "<script>alert('Pedido #$id_novo_pedido realizado com sucesso!'); window.location.href='menu-clientes.php';</script>";
@@ -60,9 +62,29 @@ if (isset($_SESSION['carrinho'])) {
                     </a>
 
                     <div class="user-logged">
-                        <a href="editar-perfil.php" title="Editar perfil" class="user-link">
-                            <i class="fa-solid fa-user"></i>
-                        </a>
+                        <div class="user-dropdown">
+                            <button class="user-link" id="userDropdownBtn">
+                                <i class="fa-solid fa-user"></i>
+                                <?php if (isset($_SESSION['pedidos_em_andamento']) && $_SESSION['pedidos_em_andamento'] === true): ?>
+                                    <span class="pedido-alerta">!</span>
+                                <?php endif; ?>
+                            </button>
+
+                            <div class="dropdown-menu" id="userDropdownMenu">
+                                <a href="editar-perfil.php">
+                                    <i class="fa-solid fa-pen"></i> Editar Perfil
+                                </a>
+
+                                <a href="checar-pedido.php" class="checar-pedido-link">
+                                    <i class="fa-solid fa-receipt"></i> Checar Pedido
+                                    <?php if (isset($_SESSION['pedidos_em_andamento']) && $_SESSION['pedidos_em_andamento'] === true): ?>
+                                        <span class="pedido-alerta-mini">!</span>
+                                    <?php endif; ?>
+                                </a>
+                            </div>
+
+                        </div>
+
                         <a href="../src/cliente/logout.php" title="Sair" class="logout-icon">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </a>
@@ -90,6 +112,21 @@ if (isset($_SESSION['carrinho'])) {
             <p>© 2025 Lababadi — Todos os direitos reservados.</p>
         </footer>
     </div>
+
+    <!-- Script do icone de usuario -->
+    <script>
+        document.getElementById("userDropdownBtn").addEventListener("click", function (e) {
+            e.stopPropagation();
+            document.querySelector(".user-dropdown").classList.toggle("active");
+        });
+
+        document.addEventListener("click", function () {
+            document.querySelector(".user-dropdown").classList.remove("active");
+        });
+    </script>
+
+    <?php include './includes/popup-pedido.php'; ?>
+
 </body>
 
 </html>

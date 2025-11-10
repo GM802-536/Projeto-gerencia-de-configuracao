@@ -36,8 +36,8 @@ foreach ($_SESSION['carrinho'] as $produto_id => $item_carrinho) {
     if (isset($produtos_map[$produto_id])) {
         $produto_real = $produtos_map[$produto_id];
         $quantidade = $item_carrinho['quantidade'];
-        $preco_unitario = (float)$produto_real['preco'];
-        
+        $preco_unitario = (float) $produto_real['preco'];
+
         $total_pedido += ($preco_unitario * $quantidade);
 
         // Adiciona ao array de itens que será salvo no pedido
@@ -59,7 +59,8 @@ if ($total_pedido <= 0 || empty($itens_pedido)) {
 $pedidos = [];
 if (file_exists($caminho_pedidos)) {
     $pedidos = json_decode(file_get_contents($caminho_pedidos), true);
-    if (!is_array($pedidos)) $pedidos = [];
+    if (!is_array($pedidos))
+        $pedidos = [];
 }
 
 // Gera novo ID (pega o maior ID atual e soma 1, ou começa do 1)
@@ -83,7 +84,7 @@ $novo_pedido = [
     'id_cliente' => $_SESSION['usuario']['id'],
     'nome_cliente' => $_SESSION['usuario']['nome'],
     'data_pedido' => date('Y-m-d H:i:s'),
-    'status' => 'recebido', 
+    'status' => 'recebido',
     'total' => $total_pedido,
     'itens' => $itens_pedido
 ];
@@ -92,6 +93,41 @@ $novo_pedido = [
 $pedidos[] = $novo_pedido;
 if (file_put_contents($caminho_pedidos, json_encode($pedidos, JSON_PRETTY_PRINT))) {
     // SUCESSO!
+
+    // ✅ Salva o ID do pedido no JSON do usuário
+    $caminho_usuarios = __DIR__ . '/../../database/usuarios.json';
+
+    // Lê o arquivo JSON dos usuários
+    if (file_exists($caminho_usuarios)) {
+        $usuarios = json_decode(file_get_contents($caminho_usuarios), true);
+
+        foreach ($usuarios as &$usuario) {
+            if ($usuario['id'] === $_SESSION['usuario']['id']) {
+                // Se ainda não existir o campo, cria como array
+                if (!isset($usuario['pedidos_em_andamento']) || !is_array($usuario['pedidos_em_andamento'])) {
+                    $usuario['pedidos_em_andamento'] = [];
+                }
+
+                // Adiciona o novo pedido no array, se ainda não existir
+                if (!in_array($novo_id_pedido, $usuario['pedidos_em_andamento'])) {
+                    $usuario['pedidos_em_andamento'][] = $novo_id_pedido;
+                }
+
+                break;
+            }
+        }
+
+        // Salva de volta no arquivo
+        file_put_contents($caminho_usuarios, json_encode($usuarios, JSON_PRETTY_PRINT));
+    }
+
+    // ✅ Também mantém na sessão (pra interface)
+    if (!isset($_SESSION['pedidos_em_andamento']) || !is_array($_SESSION['pedidos_em_andamento'])) {
+        $_SESSION['pedidos_em_andamento'] = [];
+    }
+    $_SESSION['pedidos_em_andamento'][] = $novo_id_pedido;
+
+
     // 8. Limpa o carrinho
     unset($_SESSION['carrinho']);
     // 9. Redireciona para o menu com mensagem de sucesso
