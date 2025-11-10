@@ -76,7 +76,7 @@ if (isset($_SESSION['carrinho'])) {
                                 </a>
 
                                 <a href="checar-pedido.php" class="checar-pedido-link">
-                                    <i class="fa-solid fa-receipt"></i> Checar Pedido
+                                    <i class="fa-solid fa-receipt"></i> Checar Pedidos
                                     <?php if (isset($_SESSION['pedidos_em_andamento']) && !empty($_SESSION['pedidos_em_andamento'])): ?>
                                         <span class="pedido-alerta-mini">!</span>
                                     <?php endif; ?>

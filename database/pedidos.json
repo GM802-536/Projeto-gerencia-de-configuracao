@@ -20,7 +20,7 @@
         "id_cliente": 0,
         "nome_cliente": "Administrador",
         "data_pedido": "2025-11-10 14:52:31",
-        "status": "recebido",
+        "status": "entregue",
         "total": 210.4,
         "itens": [
             {
@@ -35,6 +35,155 @@
                 "quantidade": 1,
                 "preco_unitario": 12.4
             }
+        ],
+        "data_entrega": "2025-11-10 18:33:56"
+    },
+    {
+        "id": 3,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 15:34:31",
+        "status": "entregue",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ],
+        "data_entrega": "2025-11-10 18:34:53"
+    },
+    {
+        "id": 4,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 15:36:10",
+        "status": "entregue",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ],
+        "data_entrega": "2025-11-10 18:37:17"
+    },
+    {
+        "id": 5,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 15:37:23",
+        "status": "entregue",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ],
+        "data_entrega": "2025-11-10 18:44:09"
+    },
+    {
+        "id": 6,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 15:38:16",
+        "status": "entregue",
+        "total": 123.8,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 2,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ],
+        "data_entrega": "2025-11-10 18:39:18"
+    },
+    {
+        "id": 7,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 15:46:06",
+        "status": "entregue",
+        "total": 111.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            },
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ],
+        "data_entrega": "2025-11-10 18:52:53"
+    },
+    {
+        "id": 8,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 15:52:49",
+        "status": "Preparando",
+        "total": 99,
+        "itens": [
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
         ]
+    },
+    {
+        "id": 9,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 15:53:02",
+        "status": "entregue",
+        "total": 99,
+        "itens": [
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ],
+        "data_entrega": "2025-11-10 18:53:07"
     }
 ]

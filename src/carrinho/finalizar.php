@@ -84,7 +84,7 @@ $novo_pedido = [
     'id_cliente' => $_SESSION['usuario']['id'],
     'nome_cliente' => $_SESSION['usuario']['nome'],
     'data_pedido' => date('Y-m-d H:i:s'),
-    'status' => 'recebido',
+    'status' => 'Preparando',
     'total' => $total_pedido,
     'itens' => $itens_pedido
 ];

@@ -96,3 +96,20 @@ h1 {
     font-size: 1rem;
     padding: 40px 0;
 }
+
+.btn-finalizar {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 500;
+}
+
+.btn-finalizar:hover {
+    background-color: #1b5e20;
+}
+

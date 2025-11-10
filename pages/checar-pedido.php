@@ -27,6 +27,17 @@ foreach ($usuarios as $u) {
 // Filtra pedidos do usuário
 $meus_pedidos = array_filter($pedidos, fn($p) => $p['id_cliente'] === $usuario_id);
 
+//Sorting dos pedidos ativos primeiro
+usort($meus_pedidos, function ($a, $b) use ($pedidos_em_andamento) {
+                $aAtivo = in_array($a['id'], $pedidos_em_andamento);
+                $bAtivo = in_array($b['id'], $pedidos_em_andamento);
+
+                if ($aAtivo && !$bAtivo)
+                    return -1; // pedidos ativos primeiro
+                if (!$aAtivo && $bAtivo)
+                    return 1;
+                return $b['id'] <=> $a['id']; // dentro de cada grupo, ordem decrescente por ID
+            });
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -47,11 +58,7 @@ $meus_pedidos = array_filter($pedidos, fn($p) => $p['id_cliente'] === $usuario_i
         <h1>📦 Meus Pedidos</h1>
 
         <?php if (!empty($meus_pedidos)): ?>
-            <?php foreach (array_reverse($meus_pedidos) as $pedido): ?>
-                <?php if (in_array($pedido['id'], $pedidos_em_andamento)): ?>
-                    <p style="color:#c62828;font-weight:600;">⏳ Em andamento</p>
-                <?php endif; ?>
-
+            <?php foreach ($meus_pedidos as $pedido): ?>
                 <div class="pedido-card">
                     <h2>Pedido #<?= $pedido['id']; ?> —
                         <span class="status <?= strtolower($pedido['status']); ?>">
@@ -71,6 +78,15 @@ $meus_pedidos = array_filter($pedidos, fn($p) => $p['id_cliente'] === $usuario_i
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    <?php if (in_array($pedido['id'], $pedidos_em_andamento)): ?>
+                        <form action="../src/cliente/confirmar-entrega.php" method="POST" style="margin-top:10px;">
+                            <input type="hidden" name="pedido_id" value="<?= $pedido['id']; ?>">
+                            <button type="submit" class="btn-finalizar">
+                                ✅ Confirmar entrega
+                            </button>
+                        </form>
+                    <?php endif; ?>
+
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
