@@ -65,7 +65,7 @@ if (isset($_SESSION['carrinho'])) {
                         <div class="user-dropdown">
                             <button class="user-link" id="userDropdownBtn">
                                 <i class="fa-solid fa-user"></i>
-                                <?php if (isset($_SESSION['pedidos_em_andamento']) && $_SESSION['pedidos_em_andamento'] === true): ?>
+                                <?php if (isset($_SESSION['pedidos_em_andamento']) && !empty($_SESSION['pedidos_em_andamento'])): ?>
                                     <span class="pedido-alerta">!</span>
                                 <?php endif; ?>
                             </button>
@@ -77,7 +77,7 @@ if (isset($_SESSION['carrinho'])) {
 
                                 <a href="checar-pedido.php" class="checar-pedido-link">
                                     <i class="fa-solid fa-receipt"></i> Checar Pedido
-                                    <?php if (isset($_SESSION['pedidos_em_andamento']) && $_SESSION['pedidos_em_andamento'] === true): ?>
+                                    <?php if (isset($_SESSION['pedidos_em_andamento']) && !empty($_SESSION['pedidos_em_andamento'])): ?>
                                         <span class="pedido-alerta-mini">!</span>
                                     <?php endif; ?>
                                 </a>
@@ -115,14 +115,17 @@ if (isset($_SESSION['carrinho'])) {
 
     <!-- Script do icone de usuario -->
     <script>
-        document.getElementById("userDropdownBtn").addEventListener("click", function (e) {
-            e.stopPropagation();
-            document.querySelector(".user-dropdown").classList.toggle("active");
-        });
+        const btn = document.getElementById("userDropdownBtn");
+        if (btn) {
+            document.getElementById("userDropdownBtn").addEventListener("click", function (e) {
+                e.stopPropagation();
+                document.querySelector(".user-dropdown").classList.toggle("active");
+            });
 
-        document.addEventListener("click", function () {
-            document.querySelector(".user-dropdown").classList.remove("active");
-        });
+            document.addEventListener("click", function () {
+                document.querySelector(".user-dropdown").classList.remove("active");
+            });
+        }
     </script>
 
     <?php include './includes/popup-pedido.php'; ?>

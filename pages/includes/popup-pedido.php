@@ -16,7 +16,9 @@ if (isset($_SESSION['usuario']['id']) && file_exists($caminho_usuarios)) {
         if ($usuario['id'] === $_SESSION['usuario']['id']) {
 
             // Atualiza a flag da sessão sempre que o menu for carregado
-            $_SESSION['pedidos_em_andamento'] = isset($usuario['pedidos_em_andamento']) ? !empty($usuario['pedidos_em_andamento']): false;
+            $_SESSION['pedidos_em_andamento'] = isset($usuario['pedidos_em_andamento'])
+                ? $usuario['pedidos_em_andamento']
+                : [];
 
             // Verifica se há pedidos em andamento no JSON
             if (!empty($usuario['pedidos_em_andamento']) && is_array($usuario['pedidos_em_andamento'])) {
