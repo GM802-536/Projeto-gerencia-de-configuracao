@@ -1,25 +1,25 @@
 [
     {
         "id": 1,
-        "nome": "Oii",
-        "categoria": "bebida",
+        "nome": "Sorvete",
+        "categoria": "sobremesa",
         "sku": "A001",
-        "preco": 12.4,
-        "quantidade": 12,
+        "preco": 15.99,
+        "quantidade": 1,
         "status": "ativo",
-        "descricao": "Lanche",
+        "descricao": "Sorvete de Creme",
         "imagem": null,
         "criado_em": "2025-10-12 22:10:02"
     },
     {
         "id": 3,
-        "nome": "Mene",
-        "categoria": "sobremesa",
+        "nome": "Hamburguer",
+        "categoria": "prato-principal",
         "sku": "A004",
-        "preco": 99,
+        "preco": 29.9,
         "quantidade": 1,
         "status": "ativo",
-        "descricao": "Mene delicia manpo kkk",
+        "descricao": "Hamburgao",
         "imagem": "database\/uploads\/img_68ec2b13a3f32.jpeg",
         "criado_em": "2025-10-12 22:26:27"
     }

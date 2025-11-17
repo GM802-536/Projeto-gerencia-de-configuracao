@@ -186,5 +186,39 @@
             }
         ],
         "data_entrega": "2025-11-10 18:53:07"
+    },
+    {
+        "id": 10,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 20:04:47",
+        "status": "entregue",
+        "total": 99,
+        "itens": [
+            {
+                "id_produto": 3,
+                "nome_produto": "Mene",
+                "quantidade": 1,
+                "preco_unitario": 99
+            }
+        ],
+        "data_entrega": "2025-11-10 23:04:56"
+    },
+    {
+        "id": 11,
+        "id_cliente": 0,
+        "nome_cliente": "Administrador",
+        "data_pedido": "2025-11-10 20:31:37",
+        "status": "entregue",
+        "total": 12.4,
+        "itens": [
+            {
+                "id_produto": 1,
+                "nome_produto": "Oii",
+                "quantidade": 1,
+                "preco_unitario": 12.4
+            }
+        ],
+        "data_entrega": "2025-11-10 23:32:06"
     }
 ]

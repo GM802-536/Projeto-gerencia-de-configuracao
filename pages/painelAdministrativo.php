@@ -26,8 +26,8 @@ $usuario = $_SESSION['usuario'];
             <div class="botoes">
                 <a href="registroProduto.php" class="btn">Cadastrar Produto</a>
                 <a href="listarProdutos.php" class="btn">Gerenciar Produtos</a>
-                <a href="#" class="btn desativado">Gerenciamento de Mesas (em desenvolvimento)</a>
-                <a href="#" class="btn desativado">Gerenciamento de Entregas (em desenvolvimento)</a>
+                <!-- <a href="#" class="btn desativado">Gerenciamento de Mesas (em desenvolvimento)</a> -->
+                <!-- <a href="#" class="btn desativado">Gerenciamento de Entregas (em desenvolvimento)</a> -->
             </div>
 
             <div class="rodape">
